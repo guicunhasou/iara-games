@@ -29,11 +29,12 @@ h1 {
   gap: 2vh;
 }
 
-.imagens li{
+.imagens li {
   width: 20vh;
   height: 20vh;
   overflow: hidden;
   border-radius: 2vh;
+  position: relative;
   transition: width 0.7s ease-in-out, height 0.7s ease-in-out;
 }
 
@@ -41,14 +42,31 @@ h1 {
   width: 45vh;
 }
 
-.imagens img{
+.imagens img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.imagens li:hover{
+.imagens li:hover {
   width: 50%;
+}
+
+.imagens li .legenda {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 1vh;
+  font-size: 1.5vh;
+  border-radius: 0 0 2vh 2vh;
+  display: none;
+}
+
+.imagens li:hover .legenda {
+  display: block;
 }
 
 .descricao {
@@ -60,8 +78,12 @@ h1 {
 
 .descricao h2 {
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 2.5vh;
   text-align: center;
+}
+
+.descricao p {
+  font-size: 2vh;
 }
 
 aside {
@@ -77,10 +99,28 @@ aside .capa {
   overflow: hidden;
   border-radius: 2vh;
   margin-bottom: 2vh;
+  position: relative;
 }
 
-aside img{
+aside img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+aside .legenda {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 1vh;
+  font-size: 1.5vh;
+  border-radius: 0 0 2vh 2vh;
+  display: none;
+}
+
+aside .capa:hover .legenda {
+  display: block;
 }
