@@ -1,119 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-
+  <head>
     <meta charset="UTF-8">
-
     <script src="https://kit.fontawesome.com/ba31b5627b.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="../../css/var.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/jogos.css">
-
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
     <title>Iara Games: A Lenda do Herói</title>
-
-</head>
-
-<body>
-
-    <nav role="navigation" aria-label="Menu principal">
-        <a class="logo" href="../../../index.html" aria-label="Página inicial Iara Games"><img src="../../images/logo.svg" alt="Logo Iara Games"></a>
-            <img src="../../images/logo.svg" alt="Logo Iara Games">
-        </a>
-        <ul class="menu">
-            <li class="inativo"><a href="../loja.html" aria-label="Ir para a loja">Loja</a></li>
-            <li class="inativo"><a href="#" aria-label="Ver jogos do usuário">Jogos do Usuário</a></li>
-            <li class="inativo"><a href="#" aria-label="Acessar fórum">Fórum</a></li>
-            <li class="inativo"><a href="#" aria-label="Acessar suporte">Suporte</a></li>
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="../../../index.html" aria-label="Página inicial Iara Games"><img src="../../images/logo.svg" alt="Logo Iara Games"></a>
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="menu" role="menubar">
+          <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="../loja.html">Loja</a></li>
+          <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="#">Biblioteca</a></li>
+          <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="#">Fórum</a></li>
+          <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="#">Suporte</a></li>
         </ul>
-
-        <a class="perfil" href="../usuario.html" aria-label="Ir para o perfil do usuário">
-            <i class="fa-solid fa-circle-user"></i>
-        </a>
-    </nav>
-
+      </nav>
+      <a class="perfil" href="../usuario.html" aria-label="Perfil do usuário"><i class="fa-solid fa-circle-user"></i></a>
+    </header>
     <main>
-
-        <article>
-            <h1>A Lenda do Herói</h1>
-            <ul class="imagens">
-                <li>
-                    <img src="../../images/dados/10b-hero.webp" alt="Cena de gameplay de A Lenda do Herói, com o protagonista enfrentando um inimigo.">
-                    <div class="legenda">Protagonista enfrentando um inimigo.</div>
-                </li>
-                <li>
-                    <img src="../../images/dados/10a-hero.webp" alt="O herói em um cenário épico, com uma espada em mãos, pronto para enfrentar novos desafios em uma jornada cheia de humor e referências aos jogos clássicos.">
-                    <div class="legenda">Herói pronto para enfrentar novos desafios em sua jornada épica.</div>
-                </li>
-                <li>
-                    <img src="../../images/dados/10c-hero.webp" alt="A Lenda do Herói mostrando o protagonista correndo por uma paisagem vibrante.">
-                    <div class="legenda">Protagonista correndo por um cenário vibrante.</div>
-                </li>
-            </ul>
-            
-            <div class="descricao">
-                <h2>Entre na aventura, cante seus feitos e torne-se A Lenda do Herói!</h2>
-                <p>Jogo de ação e aventura em 2D, criado pelos irmãos Castro e desenvolvido pelo estúdio brasileiro Dumativa. Ele se destaca pela trilha sonora cantada, que narra em tempo real as ações do jogador, misturando humor e nostalgia em uma jornada épica cheia de desafios e referências aos clássicos dos games.</p>
-            </div>
-            <a class="botao" href="../loja.html" aria-label="Voltar para a loja"> Voltar </a>
-        </article>
-
-        <aside>
-            <div class="capa">
-                <img src="../../images/cards/10-hero.webp" alt="Capa de A Lenda do Herói, mostrando o protagonista em um cenário épico, com uma espada e elementos de ação e aventura.">
-                <div class="legenda">Capa de A Lenda do Herói, destacando o protagonista em uma jornada épica.</div>
-            </div>
-            <a class="botao" href="#" aria-label="Salvar o jogo">Salvar</a>
-            <a class="botao" href="#" aria-label="Comprar o jogo">Comprar</a>
-        </aside>
-
-    </main>
-
-    <div class="decoracao"></div>
-
-    <footer>
-
-        <ul class="icones">
-            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i class="fa-brands fa-facebook icon"></i>
-            </a></li>
-            <li><a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <i class="fa-brands fa-x-twitter icon"></i>
-            </a></li>
-            <li><a href="https://www.youtube.com.br" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <i class="fa-brands fa-youtube icon"></i>
-            </a></li>
+      <article>
+        <h1>A Lenda do Herói</h1>
+        <ul class="imagens" role="list" aria-label="Capturas de tela do jogo">
+          <li role="listitem">
+            <img src="../../images/dados/10b-hero.webp" alt="Cena de gameplay de A Lenda do Herói, com o protagonista enfrentando um inimigo.">
+            <div class="legenda">Protagonista enfrentando um inimigo.</div>
+          </li>
+          <li role="listitem">
+            <img src="../../images/dados/10a-hero.webp" alt="O herói em um cenário épico, com uma espada em mãos, pronto para enfrentar novos desafios em uma jornada cheia de humor e referências aos jogos clássicos.">
+            <div class="legenda">Herói pronto para enfrentar novos desafios em sua jornada épica.</div>
+          </li>
+          <li role="listitem">
+            <img src="../../images/dados/10c-hero.webp" alt="A Lenda do Herói mostrando o protagonista correndo por uma paisagem vibrante.">
+            <div class="legenda">Protagonista correndo por um cenário vibrante.</div>
+          </li>
         </ul>
-
-        <div class="linha"></div>
-
-        <ul class="links">
-            <li><a href="#">Trabalhe conosco</a></li>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Parceiros</a></li>
-            <li><a href="#">Termos de uso</a></li>
-            <li><a href="#">Política de privacidade</a></li>
-        </ul>
-
-        <div class="linha"></div>
-
-        <div class="informacoes">
-
-            <p class="legal"> © 2025, Iara Games. Todos os direitos reservados. Iara Games e o logotipo da Iara Games são marcas comerciais ou registradas da Iara Games no Brasil e em outros países. Os jogos disponibilizados na plataforma também estão protegidos por direitos autorais e marcas registradas de seus respectivos proprietários. Nosso site pode conter links para outros sites e recursos fornecidos por terceiros. Esses links são disponibilizados apenas para sua conveniência. A Iara Games não tem controle sobre o conteúdo desses sites ou recursos e não assume qualquer responsabilidade por eles, nem por qualquer perda ou dano resultante do seu uso. </p>
-
-            <div class="contato-botao">
-
-                <p class="contato"> Entre em contato: <a href="mailto:iaragamesoficial@gmail.com">iaragamesoficial@gmail.com</a></p>
-
-                <a class="botao" href="#top" aria-label="Voltar ao topo da página"> Voltar ao topo </a>
-
-            </div>
-
+        <div class="descricao">
+          <h2>Entre na aventura, cante seus feitos e torne-se A Lenda do Herói!</h2>
+          <p>Jogo de ação e aventura em 2D, criado pelos irmãos Castro e desenvolvido pelo estúdio brasileiro Dumativa. Ele se destaca pela trilha sonora cantada, que narra em tempo real as ações do jogador, misturando humor e nostalgia em uma jornada épica cheia de desafios e referências aos clássicos dos games.</p>
         </div>
-
+        <a class="botao" role="button" tabindex="0" href="../loja.html" aria-label="Voltar para a loja">Voltar</a>
+      </article>
+      <aside>
+        <div class="capa">
+          <img src="../../images/cards/10-hero.webp" alt="Capa de A Lenda do Herói, mostrando o protagonista em um cenário épico, com uma espada e elementos de ação e aventura.">
+          <div class="legenda">Capa de A Lenda do Herói, destacando o protagonista em uma jornada épica.</div>
+        </div>
+        <a class="botao" role="button" tabindex="0" href="#" aria-label="Salvar jogo">Salvar</a>
+        <a class="botao" role="button" tabindex="0" href="#" aria-label="Comprar jogo">Comprar</a>
+      </aside>
+    </main>
+    <div class="decoracao"></div>
+    <footer>
+      <ul class="icones" role="menubar" aria-label="Redes sociais">
+        <li role="none"><a role="menuitem" tabindex="0" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook icon"></i></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="https://x.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter icon"></i></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="https://www.youtube.com.br" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube icon"></i></a></li>
+      </ul>
+      <div class="linha"></div>
+      <ul class="links" role="menubar" aria-label="Links institucionais">
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Trabalhe conosco</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Sobre nós</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Parceiros</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Termos de uso</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Política de privacidade</a></li>
+      </ul>
+      <div class="linha"></div>
+      <div class="informacoes">
+        <p class="legal"> © 2025, Iara Games. Todos os direitos reservados. Iara Games e o logotipo da Iara Games são marcas comerciais ou registradas da Iara Games no Brasil e em outros países. Os jogos disponibilizados na plataforma também estão protegidos por direitos autorais e marcas registradas de seus respectivos proprietários. Nosso site pode conter links para outros sites e recursos fornecidos por terceiros. Esses links são disponibilizados apenas para sua conveniência. A Iara Games não tem controle sobre o conteúdo desses sites ou recursos e não assume qualquer responsabilidade por eles, nem por qualquer perda ou dano resultante do seu uso. </p>
+        <div class="contato-botao">
+          <p class="contato"> Entre em contato: <a href="#"> iaragamesoficial@gmail.com </a></p>
+          <a class="botao" href="#top" aria-label="Voltar ao topo da página" role="button" tabindex="0"> Voltar ao topo </a>
+        </div>
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>
