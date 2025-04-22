@@ -17,15 +17,15 @@
 
   <body>
 
-    <nav>
+    <nav role="navigation" aria-label="Menu principal">
 
       <a class="logo" href="../../index.html"><img src="./../images/logo.svg" alt="Logo Iara Games"></a>
 
-      <ul class="menu">
-        <li class="ativo"><a href="#" aria-current="page">Loja</a></li>
-        <li class="inativo"><a href="#">Biblioteca</a></li>
-        <li class="inativo"><a href="#">Fórum</a></li>
-        <li class="inativo"><a href="#">Suporte</a></li>
+      <ul class="menu" role="menubar">
+        <li class="ativo" role="none"><a role="menuitem" tabindex="0" href="#" aria-current="page">Loja</a></li>
+        <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="#">Biblioteca</a></li>
+        <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="#">Fórum</a></li>
+        <li class="inativo" role="none"><a role="menuitem" tabindex="0" href="#">Suporte</a></li>
       </ul>
 
       <a class="perfil" href="usuario.html" aria-label="Perfil do usuário"><i class="fa-solid fa-circle-user"></i></a>
@@ -33,21 +33,21 @@
 
     <section class="catalogo">
       
-      <ul class="cards">
-        <li><a href="../pages/jogos/01-dandara.html" aria-label="Ver detalhes do jogo Dandara"><img src="../images/cards/01-dandara.webp" alt="Capa do jogo Dandara" title="Dandara"></a></li>
-        <li><a href="../pages/jogos/02-dodgeball.html" aria-label="Ver detalhes do jogo Dodgeball Academia"><img src="../images/cards/02-dodgeball.webp" alt="Capa do jogo Dodgeball Academia" title="Dodgeball Academia"></a></li>
-        <li><a href="../pages/jogos/03-fobia.html" aria-label="Ver detalhes do jogo Fobia"><img src="../images/cards/03-fobia.webp" alt="Capa do jogo Fobia" title="Fobia"></a></li>
-        <li><a href="../pages/jogos/04-friday-night.html" aria-label="Ver detalhes do jogo Friday Night Funkin'"><img src="../images/cards/04-friday-night.webp" alt="Capa do jogo Friday Night Funkin'" title="Friday Night Funkin'"></a></li>
-        <li><a href="../pages/jogos/05-gravity-heroes.html" aria-label="Ver detalhes do jogo Gravity Heroes"><img src="../images/cards/05-gravity-heroes.webp" alt="Capa do jogo Gravity Heroes" title="Gravity Heroes"></a></li>
-        <li><a href="../pages/jogos/06-horizon-chase.html" aria-label="Ver detalhes do jogo Horizon Chase Turbo"><img src="../images/cards/06-horizon-chase.webp" alt="Capa do jogo Horizon Chase Turbo" title="Horizon Chase Turbo"></a></li>
-        <li><a href="../pages/jogos/07-kaze.html" aria-label="Ver detalhes do jogo Kaze and the Wild Masks"><img src="../images/cards/07-kaze.webp" alt="Capa do jogo Kaze and the Wild Masks" title="Kaze and the Wild Masks"></a></li>
-        <li><a href="../pages/jogos/08-no-place.html" aria-label="Ver detalhes do jogo No Place for Bravery"><img src="../images/cards/08-no-place.webp" alt="Capa do jogo No Place for Bravery" title="No Place for Bravery"></a></li>
-        <li><a href="../pages/jogos/09-toren.html" aria-label="Ver detalhes do jogo Toren"><img src="../images/cards/09-toren.webp" alt="Capa do jogo Toren" title="Toren"></a></li>
-        <li><a href="../pages/jogos/10-hero.html" aria-label="Ver detalhes do jogo Hero"><img src="../images/cards/10-hero.webp" alt="Capa do jogo Hero" title="Hero"></a></li>
-        <li><a href="../pages/jogos/11-black-iris.html" aria-label="Ver detalhes do jogo Black Iris"><img src="../images/cards/11-black-iris.webp" alt="Capa do jogo Black Iris" title="Black Iris"></a></li>
-        <li><a href="../pages/jogos/12-blazing.html" aria-label="Ver detalhes do jogo Blazing Chrome"><img src="../images/cards/12-blazing.webp" alt="Capa do jogo Blazing Chrome" title="Blazing Chrome"></a></li>
-        <li><a href="../pages/jogos/13-chroma.html" aria-label="Ver detalhes do jogo Chroma Squad"><img src="../images/cards/13-chroma.webp" alt="Capa do jogo Chroma Squad" title="Chroma Squad"></a></li>
-        <li><a href="../pages/jogos/14-colina.html" aria-label="Ver detalhes do jogo Colina Legacy"><img src="../images/cards/14-colina.webp" alt="Capa do jogo Colina Legacy" title="Colina Legacy"></a></li>
+      <ul class="cards" role="list" aria-label="Jogos disponíveis">
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/01-dandara.html" aria-label="Ver detalhes do jogo Dandara"><img src="../images/cards/01-dandara.webp" alt="Capa do jogo Dandara" title="Dandara"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/02-dodgeball.html" aria-label="Ver detalhes do jogo Dodgeball Academia"><img src="../images/cards/02-dodgeball.webp" alt="Capa do jogo Dodgeball Academia" title="Dodgeball Academia"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/03-fobia.html" aria-label="Ver detalhes do jogo Fobia"><img src="../images/cards/03-fobia.webp" alt="Capa do jogo Fobia" title="Fobia"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/04-friday-night.html" aria-label="Ver detalhes do jogo Friday Night Funkin'"><img src="../images/cards/04-friday-night.webp" alt="Capa do jogo Friday Night Funkin'" title="Friday Night Funkin'"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/05-gravity-heroes.html" aria-label="Ver detalhes do jogo Gravity Heroes"><img src="../images/cards/05-gravity-heroes.webp" alt="Capa do jogo Gravity Heroes" title="Gravity Heroes"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/06-horizon-chase.html" aria-label="Ver detalhes do jogo Horizon Chase Turbo"><img src="../images/cards/06-horizon-chase.webp" alt="Capa do jogo Horizon Chase Turbo" title="Horizon Chase Turbo"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/07-kaze.html" aria-label="Ver detalhes do jogo Kaze and the Wild Masks"><img src="../images/cards/07-kaze.webp" alt="Capa do jogo Kaze and the Wild Masks" title="Kaze and the Wild Masks"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/08-no-place.html" aria-label="Ver detalhes do jogo No Place for Bravery"><img src="../images/cards/08-no-place.webp" alt="Capa do jogo No Place for Bravery" title="No Place for Bravery"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/09-toren.html" aria-label="Ver detalhes do jogo Toren"><img src="../images/cards/09-toren.webp" alt="Capa do jogo Toren" title="Toren"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/10-hero.html" aria-label="Ver detalhes do jogo Hero"><img src="../images/cards/10-hero.webp" alt="Capa do jogo Hero" title="Hero"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/11-black-iris.html" aria-label="Ver detalhes do jogo Black Iris"><img src="../images/cards/11-black-iris.webp" alt="Capa do jogo Black Iris" title="Black Iris"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/12-blazing.html" aria-label="Ver detalhes do jogo Blazing Chrome"><img src="../images/cards/12-blazing.webp" alt="Capa do jogo Blazing Chrome" title="Blazing Chrome"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/13-chroma.html" aria-label="Ver detalhes do jogo Chroma Squad"><img src="../images/cards/13-chroma.webp" alt="Capa do jogo Chroma Squad" title="Chroma Squad"></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="../pages/jogos/14-colina.html" aria-label="Ver detalhes do jogo Colina Legacy"><img src="../images/cards/14-colina.webp" alt="Capa do jogo Colina Legacy" title="Colina Legacy"></a></li>
       </ul>
 
     </section>
@@ -57,20 +57,20 @@
 
     <footer>
 
-      <ul class="icones">
-        <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook icon"></i></a></li>
-        <li><a href="https://x.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter icon"></i></a></li>
-        <li><a href="https://www.youtube.com.br" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube icon"></i></a></li>
+      <ul class="icones" role="menubar" aria-label="Redes sociais">
+        <li role="none"><a role="menuitem" tabindex="0" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook icon"></i></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="https://x.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter icon"></i></a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="https://www.youtube.com.br" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube icon"></i></a></li>
       </ul>
 
       <div class="linha"></div>
 
-      <ul class="links">
-        <li><a href="#">Trabalhe conosco</a></li>
-        <li><a href="#">Sobre nós</a></li>
-        <li><a href="#">Parceiros</a></li>
-        <li><a href="#">Termos de uso</a></li>
-        <li><a href="#">Política de privacidade</a></li>
+      <ul class="links" role="menubar" aria-label="Links institucionais">
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Trabalhe conosco</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Sobre nós</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Parceiros</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Termos de uso</a></li>
+        <li role="none"><a role="menuitem" tabindex="0" href="#">Política de privacidade</a></li>
       </ul>
 
       <div class="linha"></div>
@@ -83,7 +83,7 @@
 
           <p class="contato"> Entre em contato: <a href="#"> iaragamesoficial@gmail.com </a></p>
 
-          <a class="botao" href="#top" aria-label="Voltar ao topo da página"> Voltar ao topo </a>
+          <a class="botao" role="button" tabindex="0" href="#top" aria-label="Voltar ao topo da página"> Voltar ao topo </a>
 
         </div>
 

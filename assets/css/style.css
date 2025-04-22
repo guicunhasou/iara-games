@@ -143,8 +143,8 @@ nav {
 .cards-destaques li a:hover,
 .cards-destaques li a:focus {
   border-color: var(--primary-verde-medio);
-  outline: 0.4vh solid var(--secondary-azul);
-  outline-offset: 0.3vh;
+  box-shadow: 0 0 0 3px var(--secondary-azul);
+  outline: none;
 }
 
 .cards-destaques li img {
@@ -264,6 +264,24 @@ nav {
   height: 100%;
   object-fit: cover;
 }
+
+.cards li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2vh;
+  border: 0.5vh solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.cards li a:hover,
+.cards li a:focus {
+  border-color: var(--primary-verde-medio);
+  box-shadow: 0 0 0 3px var(--secondary-azul);
+  outline: none;
+}
+
 
 /* ------------------ CADASTRO ------------------ */
 
