@@ -1,59 +1,35 @@
+@media (max-width: 1440px) {
+
+  nav{
+    width: 60%;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  nav{
+    width: 70%;
+  }
+
+}
+
 @media (max-width: 768px) {
 
-  nav {
-    flex-direction: column;
-    gap: 2vh;
+  .logo img{
+    height: 7.5vh;
+  }
+
+  nav{
+    width: 80%;
+  }
+
+  .perfil{
+    font-size: 2rem;
   }
 
   .menu {
-    flex-direction: column;
-    gap: 2vh;
+    font-size: 0.7rem;
   }
 
-  .cards {
-    width: 90%;
-    gap: 2vh;
-  }
-
-  footer .links {
-    flex-direction: column;
-    gap: 1vh;
-    margin-bottom: 1vh;
-  }
-
-  footer .informacoes {
-    flex-direction: column;
-    gap: 2vh;
-  }
-
-  footer .legal {
-    width: 100%;
-    text-align: justify;
-  }
-
-  main {
-    flex-direction: column;
-    margin: 5%;
-  }
-
-  .imagens {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .imagens li,
-  .imagens li:nth-child(2),
-  .imagens li:hover {
-    width: 80vw;
-    height: auto;
-  }
-
-  aside {
-    align-items: center;
-  }
-
-  aside .capa {
-    width: 50vw;
-    height: auto;
-  }
 }

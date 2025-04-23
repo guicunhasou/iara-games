@@ -17,19 +17,57 @@ body {
   color: var(--primary-verde-escuro);
 }
 
-/* -------------------- HEADER -------------------- */
+/* ------------------- HEADER ------------------- */
 
-header {
-  background: url(../images/background-superior.svg) repeat-x left top / auto 100%;
-  height: 20vh;
+header{
   width: 100%;
+  height: 20%;
+  background-color: #ccc;
+  background: url(../images/background-superior.svg) repeat-x left top / auto 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.logo img {
-  height: 10vh;
+nav{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.menu{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.menu a{
+  color: var(--primary-verde-cabelo);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.inativo{
+  transition: transform 0.5s ease-in-out;
+}
+
+.inativo:hover{
+  transform: scale(1.2);
+}
+
+.ativo a{
+  color: var(--primary-verde-escuro);
+  background-color: var(--primary-verde-pastel);
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  box-shadow: 0 0.2rem 0.2rem 0 var(--primary-verde-medio);
+}
+
+.logo img{
+  height: 6rem;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -37,83 +75,172 @@ header {
   transform: scale(1.2);
 }
 
-.menu {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 10vh;
-  padding: 0 10vh;
-}
-
-.menu a {
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.ativo a {
-  color: var(--primary-verde-escuro);
-  background-color: var(--primary-verde-pastel);
-  padding: 0.5vh 2vh;
-  border-radius: 3vh;
-  box-shadow: 0 0.5vh 0.5vh 0 var(--primary-verde-medio);
-}
-
-.inativo a {
-  color: var(--primary-verde-cabelo);
-}
-
-.inativo a:hover {
-  color: var(--primary-verde-escuro);
-}
-
-.perfil {
+.perfil i{
   color: var(--secondary-azul-iara);
   font-size: 3rem;
   transition: transform 0.5s ease-in-out;
 }
 
-.perfil:hover {
-  transform: scale(1.5);
+.perfil i:hover {
+  transform: scale(1.2);
 }
 
-/* -------------------- HERO -------------------- */
+/* ------------------- FOOTER ------------------- */
 
-.hero {
-  background: url(../images/iara-hero.svg) no-repeat bottom center / 100% auto;
-  height: 85vh;
+.footer{
+  background: var(--gradiente-1);
+  padding: 2% 2%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-left: 60vh;
-  padding-bottom: 30vh;
-  gap: 3vh;
+  gap: 1rem;
+}
+
+.decoracao{
+  background: url(../images/background-inferior.svg) repeat-x top center;
+  height: 200px;
+}
+
+.linha{
+  border: 0.1rem solid var(--primary-verde-menta);
+  width: 100%;
+}
+
+.icones{
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
+}
+
+.icones a{
+  color: var(--base-0);
+  font-size: 2.5rem;
+}
+
+.links{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.links a{
+  color: var(--base-0);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.informacoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.legal {
+  color: var(--base-0);
+  font-size: 0.8rem;
+  width: 50%;
+}
+
+.contato-botao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contato {
+  color: var(--secondary-bege);
+}
+
+.contato a {
+  text-decoration: none;
+  color: var(--primary-verde-cabelo);
+}
+
+.icones a:hover,
+.links a:hover,
+.contato a:hover {
+  color: var(--secondary-azul);
+}
+
+/* ------------------- BOTOES ------------------- */
+
+.botao {
+  background-color: var(--primary-verde-escuro);
+  color: var(--base-0);
+  padding: 1rem 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 2rem;
+  transition: transform 0.5s ease-in-out;
+}
+
+.botao:hover {
+  background-color: var(--secondary-azul);
+  color: var(--base-0);
+  transform: scale(1.2);
+}
+
+/* --------------- ACESSIBILIDADE --------------- */
+
+a:focus, button:focus, [role="button"]:focus, [role="menuitem"]:focus {
+  outline: 0.2rem solid var(--secondary-azul);
+  outline-offset: 0.2rem;  
+}
+
+/* -------------------- HOME -------------------- */
+
+.hero{
+  background: url(../images/iara-hero.svg) no-repeat bottom center / 100% auto;
+  height: 800px;
+  display: flex;
+}
+
+.hero div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(-50%, -50%);
 }
 
 .hero h1 {
-  width: 40vh;
+  width: 25rem;
   font-size: 2.5rem;
   font-weight: 800;
 }
 
-/* ----------------- DESTAQUES ------------------ */
+.hero a {
+  width: 25rem;
+}
 
-.titulo{
+article{
+  width: 100%;
+  padding: 2rem;
+}
+
+.conteudo{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.conteudo h2{
   font-size: 1.8rem;
-  padding-bottom: 2vh;
 }
 
 .destaques{
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2vh;
-}
-
-.conteudo-destaques{
-  width: 50%;
-  padding-bottom: 5vh;
 }
 
 .cards-destaques {
@@ -122,31 +249,20 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 4vh;
 }
 
 .cards-destaques li {
-  width: 16vh;
-  height: 24vh;
+  width: 10rem;
+  height: 15rem;
 }
 
 .cards-destaques li a {
   display: block;
-  width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 2vh;
-  border: 0.5vh solid transparent;
+  border-radius: 1rem;
+  border: 0.3rem solid transparent;
   transition: border-color 0.2s ease-in-out;
-}
-
-.cards-destaques li a:hover{
-  border-color: var(--primary-verde-medio);
-}
-
-.cards-destaques li a:focus {
-  outline: 0.4vh solid var(--secondary-azul);
-  outline-offset: 0.3vh;
 }
 
 .cards-destaques li img {
@@ -155,19 +271,19 @@ header {
   object-fit: cover;
 }
 
-/* ----------------- CATEGORIAS ----------------- */
+.cards-destaques li a:hover{
+  border-color: var(--primary-verde-medio);
+}
+
+.cards-destaques li a:focus {
+  outline: 0.2rem solid var(--secondary-azul);
+  outline-offset: 0.2rem;
+}
 
 .categorias{
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2vh;
-}
-
-.conteudo-categorias{
-  width: 50%;
-  padding-bottom: 5vh;
 }
 
 .cards-categorias {
@@ -176,49 +292,39 @@ header {
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  gap: 4vh;
 }
 
 .cards-categorias li {
-  padding: 2vh 6vh;
   background-color: var(--primary-verde-menta);
   color: var(--primary-verde-cabelo);
-  border-radius: 4vh;
+  padding: 1rem 3rem;
   border: 0.5vh solid transparent;
-  transition: border-color 0.2s ease-in-out;
+  border-radius: 2rem;
   cursor: pointer;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .cards-categorias li:hover {
   border-color: var(--primary-verde-medio);
 }
 
-/* -------------------- SOBRE ------------------- */
-
 .sobre{
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2vh;
-}
-
-.conteudo-sobre{
-  width: 50%;
-  padding-bottom: 5vh;
 }
 
 .perfil-iara{
-  border-radius: 2vh;
-  width: 25vh;
-  height: 25vh;
+  border-radius: 1rem;
+  width: 15rem;
+  height: 15rem;
 }
 
 .sobre .bio{
   display: flex;
   justify-content: left;
   align-items: top;
-  gap: 2vh;
+  gap: 1rem;
 }
 
 .texto-botao{
@@ -226,7 +332,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2vh;
+  gap: 1.5rem;
 }
 
 /* -------------------- LOJA -------------------- */
@@ -234,31 +340,31 @@ header {
 .catalogo{
   display: flex;
   justify-content: center;
-  align-items: start;
-  margin: 5vh 0;
+  align-items: center;
+  margin: 2rem 0;
 }
 
 .cards {
-  width: 125vh;
+  width: 70%;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 1vh;
+  gap: 0.5rem;
 }
 
 .cards li {
-  width: 15vh;
-  height: 25vh;
+  width: 10rem;
+  height: 15rem;
   overflow: hidden;
-  border-radius: 2vh;
+  border-radius: 1rem;
   transition: width 0.7s ease-in-out, height 0.7s ease-in-out;
 }
 
 .cards li:hover {
-  width: 25vh;
-  height: 35vh;
+  width: 15rem;
+  height: 20rem;
 }
 
 .cards img {
@@ -269,11 +375,10 @@ header {
 
 .cards li a {
   display: block;
-  width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 2vh;
-  border: 0.5vh solid transparent;
+  border-radius: 1rem;
+  border: 0.3rem solid transparent;
   transition: border-color 0.2s ease-in-out;
 }
 
@@ -286,8 +391,7 @@ header {
   outline: none;
 }
 
-
-/* ------------------ CADASTRO ------------------ */
+/* ------------------ CADASTRO ------------------  */
 
 .cadastro{
   display: flex;
@@ -301,14 +405,14 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 5vh;
-  padding: 3vh 6vh;
+  border-radius: 2rem;
+  padding: 1.5rem 3rem;
 }
 
-form{
+.cadastro form{
   display: flex;
   flex-direction: column;
-  gap: 1.5vh;
+  gap: 1rem;
 }
 
 .cadastro h2{
@@ -316,13 +420,18 @@ form{
   font-weight: 800;
   font-size: 1.8rem;
   text-transform: uppercase;
-  padding: 1vh 0;
+  padding: 0.5rem 0;
+}
+
+.cadastro .botao{
+  background-color: var(--primary-verde-pastel);
+  color: var(--primary-verde-escuro);
 }
 
 .campo {
   display: flex;
   flex-direction: column;
-  margin: 1vh 0;
+  margin: 0.5rem 0;
 }
 
 label{
@@ -333,119 +442,8 @@ label{
 input {
   border: 0;
   background-color: var(--base-0);
-  height: 5vh;
-  border-radius: 1vh;
-  padding-left: 10px;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  padding-left: 0.5rem;
   font-size: 1rem;
-}
-
-/* ------------------- FOOTER ------------------- */
-
-footer {
-  background: var(--gradiente-1);
-  display: flex;
-  flex-direction: column;
-  padding: 4vh 10vh;
-  gap: 2vh;
-}
-
-footer .icones {
-  display: flex;
-  list-style: none;
-  justify-content: right;
-  gap: 2vh;
-}
-
-footer .icones a {
-  color: var(--base-0);
-  font-size: 2.5rem;
-}
-
-footer .linha {
-  border: 0.1vh solid var(--primary-verde-menta);
-  width: 100%;
-}
-
-footer .links {
-  display: flex;
-  list-style: none;
-  justify-content: space-evenly;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 8vh;
-}
-
-footer .links a {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1rem;
-  color: var(--base-0);
-}
-
-footer .informacoes {
-  display: flex;
-  justify-content: space-between;
-}
-
-footer .legal {
-  font-size: 0.8rem;
-  width: 50%;
-  color: var(--base-0);
-}
-
-footer .contato-botao {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer .contato {
-  color: var(--secondary-bege);
-}
-
-footer .contato a {
-  text-decoration: none;
-  color: var(--primary-verde-pastel);
-}
-
-footer .icones a:hover,
-.links a:hover,
-.contato a:hover {
-  color: var(--secondary-azul);
-  font-weight: 900;
-}
-
-
-
-/* ------------------- OUTROS ------------------- */
-
-.botao {
-  padding: 1.5vh 6vh;
-  background-color: var(--primary-verde-escuro);
-  color: var(--base-0);
-  font-weight: 800;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 4vh;
-  transition: transform 0.5s ease-in-out;
-}
-
-.botao:hover {
-  background-color: var(--secondary-azul);
-  color: var(--base-0);
-  transform: scale(1.2);
-}
-
-.decoracao {
-  width: 100%;
-  height: 30vh;
-  background: url(../images/background-inferior.svg) repeat-x top center;
-  background-size: auto 100%;
-}
-
-a:focus, button:focus, [role="button"]:focus, [role="menuitem"]:focus {
-  outline: 0.4vh solid var(--secondary-azul);
-  outline-offset: 0.3vh;  
 }
