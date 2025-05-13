@@ -130,24 +130,15 @@ a:focus, button:focus, [role="button"]:focus, [role="menuitem"]:focus {
 .hero{
   background: url(../images/iara-hero.svg) no-repeat bottom center / 100% auto;
   height: 800px;
-  display: flex;
 }
 
 .hero div {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
   gap: 1rem;
-  position: absolute;
-  top: 50%;
   left: 33%;
-  transform: translate(-50%, -50%);
 }
 
 .hero h1 {
   width: 25rem;
-  font-size: 2.5rem;
-  font-weight: 800;
 }
 
 .hero a {
@@ -156,7 +147,10 @@ a:focus, button:focus, [role="button"]:focus, [role="menuitem"]:focus {
 
 article{
   width: 100%;
-  padding: 2rem;
+}
+
+.conteudo{
+  width: 50%;
 }
 
 .conteudo{
@@ -182,6 +176,10 @@ article{
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+.titulo{
+  padding-top: 5rem;
 }
 
 .cards-destaques li {
@@ -213,20 +211,6 @@ article{
   outline-offset: 0.2rem;
 }
 
-.categorias{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cards-categorias {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-}
-
 .cards-categorias li {
   background-color: var(--primary-verde-menta);
   color: var(--primary-verde-cabelo);
@@ -241,31 +225,10 @@ article{
   border-color: var(--primary-verde-medio);
 }
 
-.sobre{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .perfil-iara{
   border-radius: 1rem;
   width: 15rem;
   height: 15rem;
-}
-
-.sobre .bio{
-  display: flex;
-  justify-content: left;
-  align-items: top;
-  gap: 1rem;
-}
-
-.texto-botao{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
 }
 
 /* -------------------- LOJA -------------------- */
