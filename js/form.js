@@ -1,4 +1,5 @@
-document.getElementById("criarConta").addEventListener('click', function (e) {
+const btnConta = document.querySelector('#criarConta')
+btnConta.addEventListener('click', function (e) {
     e.preventDefault();
 
     const nome = document.getElementById('nome').value.trim();
@@ -19,3 +20,4 @@ document.getElementById("criarConta").addEventListener('click', function (e) {
 
     alert('Você realizou seu cadastro!');
 });
+
