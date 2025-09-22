@@ -1,0 +1,388 @@
+[
+  {
+    "id": "206bd8fcaa20b9ee",
+    "type": "tab",
+    "label": "Iara Games",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "7710e90560314fa2",
+    "type": "inject",
+    "z": "206bd8fcaa20b9ee",
+    "name": "lista de topicos",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "[{\"titulo\":\"Discussão geral\",\"subtitulo\":\"Converse sobre qualquer coisa relacionada a jogos\",\"mensagens\":121},{\"titulo\":\"Lançamentos de jogos\",\"subtitulo\":\"Saiba sobre o que vem por aí\",\"mensagens\":95},{\"titulo\":\"Problemas técnicos\",\"subtitulo\":\"Converse sobre problemas técnicos nos jogos\",\"mensagens\":132},{\"titulo\":\"Qual seu jogo favorito?\",\"subtitulo\":\"Compartilhe seus jogos favoritos\",\"mensagens\":47},{\"titulo\":\"Boas-vindas\",\"subtitulo\":\"Sejam bem-vindos ao fórum do Iara Games!\",\"mensagens\":168},{\"titulo\":\"Dicas para iniciantes\",\"subtitulo\":\"Conheça dicas que vão te ajudar a começar no mundo dos jogos\",\"mensagens\":29},{\"titulo\":\"Tudo sobre RPG\",\"subtitulo\":\"Aprenda e compartilhe suas aventuras de RPG\",\"mensagens\":11},{\"titulo\":\"Análises de jogos\",\"subtitulo\":\"Escreva sua análise ou leia as de outros jogadores\",\"mensagens\":40},{\"titulo\":\"Mods e personalizações\",\"subtitulo\":\"Compartilhe e descubra mods legais\",\"mensagens\":55},{\"titulo\":\"Esports e competições\",\"subtitulo\":\"Fique por dentro de campeonatos e torneios\",\"mensagens\":78},{\"titulo\":\"Memes de games\",\"subtitulo\":\"Divirta-se com memes e piadas de jogos\",\"mensagens\":92},{\"titulo\":\"Game design\",\"subtitulo\":\"Discusso sobre criação e design de jogos\",\"mensagens\":34},{\"titulo\":\"Tutoriais e guias\",\"subtitulo\":\"Aprenda e ensine através de guias e tutoriais\",\"mensagens\":61},{\"titulo\":\"Histórias de jogatina\",\"subtitulo\":\"Compartilhe suas melhores aventuras no jogo\",\"mensagens\":44},{\"titulo\":\"Hardware e periféricos\",\"subtitulo\":\"Converse sobre PCs, consoles e acessórios\",\"mensagens\":88},{\"titulo\":\"Wishlist e recomendações\",\"subtitulo\":\"Dê e receba dicas de jogos para jogar\",\"mensagens\":53}]",
+    "payloadType": "json",
+    "x": 180,
+    "y": 100,
+    "wires": [["d475aad8242c7eb1"]]
+  },
+  {
+    "id": "d475aad8242c7eb1",
+    "type": "change",
+    "z": "206bd8fcaa20b9ee",
+    "name": "salvar topicos globais",
+    "rules": [
+      {
+        "t": "set",
+        "p": "topics",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "x": 400,
+    "y": 100,
+    "wires": [[]]
+  },
+  {
+    "id": "4ee4c260abbc0e39",
+    "type": "function",
+    "z": "206bd8fcaa20b9ee",
+    "name": "filtrar topicos",
+    "func": "let search = msg.payload.toLowerCase();\nlet topics = global.get(\"topics\") || [];\n\nif (!search || search.trim() === \"\") {\n    msg.payload = topics;\n} else {\n    msg.payload = topics.filter(t =>\n        t.titulo.toLowerCase().includes(search) ||\n        t.subtitulo.toLowerCase().includes(search)\n    );\n}\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": "",
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 370,
+    "y": 160,
+    "wires": [["0a2948258653498a"]]
+  },
+  {
+    "id": "0a2948258653498a",
+    "type": "ui_template",
+    "z": "206bd8fcaa20b9ee",
+    "group": "forum-group",
+    "name": "exibir topicos",
+    "order": 8,
+    "width": 18,
+    "height": 9,
+    "format": "<link href=\"https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap\" rel=\"stylesheet\">\n\n<style>\n  body,\n  .topics-container,\n  .topic-card,\n  .topic-card-content,\n  h3,\n  p,\n  small,\n  button {\n    font-family: 'Nunito', sans-serif !important;\n  }\n\n  .topics-container {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 15px;\n  }\n\n  .topic-card {\n    flex: 1 1 calc(50% - 15px);\n    border: 1px solid #00830C;\n    border-radius: 25px;\n    background-color: #BBDDBE !important;\n    padding: 10px;\n    color: #005C08 !important;\n    display: flex;\n    gap: 10px;\n    cursor: pointer;\n    transition: transform 0.3s ease-in-out;\n    box-sizing: border-box;\n    min-width: 200px;\n  }\n\n  .topic-card:hover {\n    transform: scale(1.02);\n    border: 2px solid;\n  }\n\n  .topic-card i {\n    font-size: 36px;\n    color: #005C08 !important;\n    margin: 8px 4px 4px 4px;\n    flex-shrink: 0;\n  }\n\n  .topic-card-content {\n    display: flex;\n    flex-direction: column;\n    flex: 1 1 0;\n    min-width: 0;\n  }\n\n  .topic-card-content h3 {\n    margin: 0;\n    font-size: 16px;\n    line-height: 1.2;\n    color: #005C08 !important;\n    background: transparent !important;\n  }\n\n  .topic-card-content p {\n    margin: 4px 0;\n    font-size: 13px;\n    color: #005C08 !important;\n    background: transparent !important;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n\n  .topic-card-content small {\n    font-size: 11px;\n    color: #005C08 !important;\n    opacity: 0.8;\n    background: transparent !important;\n  }\n\n  @media (max-width: 900px) {\n    .topic-card {\n      flex: 1 1 100%;\n    }\n  }\n\n  .ver-mais-btn {\n    margin: 20px auto;\n    padding: 8px 32px;\n    border: none;\n    background: #00830C;\n    color: #fff;\n    border-radius: 12px;\n    cursor: pointer;\n    font-size: 14px;\n    display: block;\n  }\n\n  .ver-mais-btn:hover {\n    background: #005C08;\n  }\n</style>\n\n<div class=\"topics-container\">\n  <div ng-repeat=\"t in msg.payload | limitTo: numVisible\" class=\"topic-card\">\n    <i class=\"fa fa-comment\"></i>\n    <div class=\"topic-card-content\">\n      <h3>{{t.titulo}}</h3>\n      <p>{{t.subtitulo}}</p>\n      <small>Mensagens: {{t.mensagens}}</small>\n    </div>\n  </div>\n</div>\n\n<button class=\"ver-mais-btn\" ng-if=\"numVisible < msg.payload.length\" ng-click=\"showMore()\">\n  Ver mais\n</button>\n\n<script>\n  (function(scope){\n    scope.numVisible = 8;\n\n    scope.showMore = function() {\n        scope.numVisible = Math.min(scope.numVisible + 8, scope.msg.payload.length);\n        scope.$applyAsync();\n    };\n})(scope);\n</script>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 560,
+    "y": 160,
+    "wires": [[]]
+  },
+  {
+    "id": "3e0a22fea8a21c73",
+    "type": "ui_template",
+    "z": "206bd8fcaa20b9ee",
+    "group": "forum-group",
+    "name": "campo de busca",
+    "order": 3,
+    "width": 10,
+    "height": 2,
+    "format": "<link href=\"https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap\" rel=\"stylesheet\">\n\n<style>\n    .search-container {\n        display: flex;\n        align-items: center;\n        border: 1px solid #00830C;\n        border-radius: 25px;\n        background-color: #F6F6F6;\n        padding: 5px 10px;\n        font-family: 'Nunito', sans-serif !important;\n    }\n\n    .search-container i {\n        color: #00830C;\n        margin-right: 8px;\n    }\n\n    .search-container input {\n        border: none;\n        background: transparent;\n        outline: none;\n        width: 100%;\n        font-size: 16px;\n        font-family: 'Nunito', sans-serif !important;\n    }\n</style>\n\n<div class=\"search-container\">\n    <i class=\"fa fa-search\"></i>\n    <input type=\"text\" placeholder=\"Buscar tópicos\" ng-model=\"searchText\" ng-change=\"send({payload: searchText})\">\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": false,
+    "resendOnRefresh": false,
+    "templateScope": "local",
+    "className": "",
+    "x": 170,
+    "y": 160,
+    "wires": [["4ee4c260abbc0e39"]]
+  },
+  {
+    "id": "3bcb03e513d47362",
+    "type": "ui_template",
+    "z": "206bd8fcaa20b9ee",
+    "group": "forum-group",
+    "name": "header",
+    "order": 1,
+    "width": 24,
+    "height": 4,
+    "format": "<div style=\"display:flex; align-items:center; gap:12px; padding:10px; background:transparent; border-radius:8px;\">\n    <img src=\"https://i.postimg.cc/QxxCTzR3/header.png\" style=\"width:100%;\" alt=\"Logo Iara\">\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 130,
+    "y": 40,
+    "wires": [[]]
+  },
+  {
+    "id": "386ef608f26a5d96",
+    "type": "ui_template",
+    "z": "206bd8fcaa20b9ee",
+    "group": "forum-group",
+    "name": "footer",
+    "order": 26,
+    "width": 24,
+    "height": 10,
+    "format": "<div style=\"display:flex; align-items:center; gap:12px; padding:10px; background:transparent; border-radius:8px;\">\n    <img src=\"https://i.postimg.cc/6QZDq9cp/footer.png\" style=\"width:100%;\" alt=\"Logo Iara\">\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 270,
+    "y": 40,
+    "wires": [[]]
+  },
+  {
+    "id": "fc490fbd41e3c472",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 2,
+    "width": 7,
+    "height": 1
+  },
+  {
+    "id": "99cfdd1cd8874844",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 4,
+    "width": 7,
+    "height": 1
+  },
+  {
+    "id": "c71ecefff477f133",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 5,
+    "width": 7,
+    "height": 1
+  },
+  {
+    "id": "9933ee86b58518c9",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 6,
+    "width": 7,
+    "height": 1
+  },
+  {
+    "id": "45278f961398f3e3",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 7,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "46c05e1f3db40590",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 9,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "297dd03e132c0f3f",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 10,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "9d6590718e6c2faf",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 11,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "9157efe0a87a24f4",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 12,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "90fb7ce338772fa0",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 13,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "35ecd508d2540b1c",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 14,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "a243c1658e6da029",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 15,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "cf1bb1b336687f81",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 16,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "0d18d2f9fdf0d345",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 17,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "6b3ec14358878764",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 18,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "4239ffa56458e8f1",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 19,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "c2226f732c828fcf",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 20,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "a4b49615ff68506f",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 21,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "c79baa8d50922190",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 22,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "854ac3493a9babdd",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 23,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "e38201a90f6bda38",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 24,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "f952a5688709beb0",
+    "type": "ui_spacer",
+    "z": "206bd8fcaa20b9ee",
+    "name": "spacer",
+    "group": "forum-group",
+    "order": 25,
+    "width": 3,
+    "height": 1
+  },
+  {
+    "id": "forum-group",
+    "type": "ui_group",
+    "name": "Fórum Iara Games",
+    "tab": "forum-ui",
+    "order": 2,
+    "disp": false,
+    "width": 24,
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "forum-ui",
+    "type": "ui_tab",
+    "name": "Fórum Iara Games",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "5b8e7e4f2b369c8d",
+    "type": "global-config",
+    "env": [],
+    "modules": {
+      "node-red-dashboard": "3.6.6"
+    }
+  }
+]
