@@ -9,10 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Cadastro />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Login />} />   {/* Login agora é a página inicial */}
+      <Route path="/cadastro" element={<Cadastro />} />
+    </Routes>
     </BrowserRouter>
   </StrictMode>
 );

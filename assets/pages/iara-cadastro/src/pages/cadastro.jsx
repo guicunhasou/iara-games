@@ -57,7 +57,7 @@ function Cadastro() {
             <li className="inativo"><Link to="#">Fórum</Link></li>
             <li className="inativo"><Link to="#">Suporte</Link></li>
           </ul>
-          <Link className="perfil" to="/login"><i className="fa-solid fa-circle-user"></i></Link>
+          <Link className="perfil" to="/"><i className="fa-solid fa-circle-user"></i></Link>
         </nav>
       </header>
 
