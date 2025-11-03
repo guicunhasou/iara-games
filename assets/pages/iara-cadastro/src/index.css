@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+:root {
+  --base-0: #F1F1F4;
+  --base-5: #FCFCFC;
+  --base-10: #F1F1F4;
+  --base-20: #CCCCCC;
+  --base-40: #999999;
+  --base-60: #666666;
+  --primary-verde-pastel: #ecf4ee;
+  --primary-verde-suave: #B9D2C3;
+  --primary-verde-menta: #9DCBB3;
+  --primary-verde-medio: #5C9D8C;
+  --primary-verde-escuro: #226B5F;
+  --primary-verde-cabelo: #104434;
+  --secondary-bege: #fffdfa;
+  --secondary-rosa-claro: #FADADA;
+  --secondary-azul: #021E4D;
+  --secondary-azul-iara: #03318C;
+  --secondary-vermelho: #730202;
+  --secondary-laranja-pessego: #F2AA6B;
+  --background-1: hsla(40, 100%, 99%, 0.9);
+  --background-2: hsla(140, 27%, 94%, 0.9);
+  --gradiente-1: linear-gradient(0deg, #2E6B6B 0%, #6AB18E 100%);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background:
+    linear-gradient(to bottom, var(--background-1) 15%, var(--background-2) 50%, var(--background-1) 95%),
+    url('./assets/background-principal.svg') no-repeat bottom / cover fixed;
+}
+
+/*/Header/*/
+
+/* HEADER */
+header {
+  height: 20%;
+  background: url(./assets/background-superior.svg) repeat-x left top / auto 100%;
+  display: flex;              
+  align-items: center;       
+  justify-content: center;    
+}
+
+header nav {
+  display: flex;            
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;                 
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+
+/* LOGO */
+.logo img {
+  transition: transform 0.5s ease-in-out;
+  width: 150px;
+  height: auto;          
+}
+
+.logo img:hover {
+  transform: scale(1.2);
+}
+
+/* MENU */
+.menu {
+  display: flex;             
+  gap: 5rem;              
+  list-style: none;
+  font-weight: 500;
+  color: var(--primary-verde-cabelo);
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  color: var(--primary-verde-cabelo);
+  text-decoration: none;
+}
+
+.inativo {
+  transition: transform 0.5s ease-in-out;
+}
+
+.inativo:hover {
+  transform: scale(1.2);
+}
+
+.ativo a {
+  color: var(--primary-verde-escuro);
+  background-color: var(--primary-verde-pastel);
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  box-shadow: 0 0.2rem 0.2rem 0 var(--primary-verde-medio);
+}
+
+
+.perfil i {
+  color: var(--secondary-azul-iara);
+  font-size: 3rem;
+  transition: transform 0.5s ease-in-out;
+}
+
+.perfil i:hover {
+  transform: scale(1.2);
+}
+
+/*Footer*/
+.footer {
+  background: var(--gradiente-1);
+  padding: 2% 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.decoracao {
+  background: url(./assets/background-inferior.svg) repeat-x top center;
+  height: 200px;
+  width: 100%;
+}
+
+
+.linha {
+  border: 0.1rem solid var(--primary-verde-menta);
+  width: 100%;
+}
+
+
+.icones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.icones a {
+  color: var(--base-0);
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icones a:hover {
+  color: var(--secondary-azul);
+  transform: scale(1.2);
+}
+
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 1rem;
+}
+
+.links a {
+  color: var(--base-0);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--secondary-azul);
+}
+
+
+.legal {
+  color: var(--base-0);
+  font-size: 0.8rem;
+  width: 50%;
+  line-height: 1.4;
+}
+
+.contato {
+  color: var(--secondary-bege);
+}
+
+.contato a {
+  color: var(--primary-verde-cabelo);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contato a:hover {
+  color: var(--secondary-azul);
+}
+
+
+
+/* --------------- ACESSIBILIDADE --------------- */
+
+a:focus, button:focus, [role="button"]:focus, [role="menuitem"]:focus {
+  outline: 0.2rem solid var(--secondary-azul);
+  outline-offset: 0.2rem;  
+}
+
+/* Responsividade */
+header nav {
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  header nav {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  header nav {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  header nav {
+    width: 80%;
+  }
+}
