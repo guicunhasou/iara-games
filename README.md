@@ -1,50 +1,72 @@
 # Iara Games
 
-Projeto acadêmico desenvolvido para a criação de uma plataforma web fictícia voltada à divulgação, descoberta e interação em torno de jogos brasileiros.
+Projeto acadêmico de uma plataforma web fictícia voltada à divulgação e descoberta de jogos brasileiros.
 
-A proposta da Iara Games é apresentar uma experiência digital inspirada em plataformas de games, com catálogo de jogos em destaque, categorias populares, área institucional e um protótipo de fórum interativo desenvolvido com Node-RED.
+A Iara Games reúne uma página inicial, um catálogo com páginas individuais de jogos, um formulário de cadastro estático, um módulo experimental de autenticação em React e Firebase e um protótipo de fórum desenvolvido no Node-RED.
 
-## 🔗 Acesse o projeto
+## Acesse o projeto
 
 - Site publicado: https://guicunhasou.github.io/iara-games/
 - Repositório: https://github.com/guicunhasou/iara-games
 
-## 🎮 Sobre o projeto
-
-A Iara Games foi pensada como uma plataforma para valorizar jogos criados no Brasil, reunindo informações, navegação simples e uma identidade visual voltada ao universo gamer.
-
-O projeto combina uma interface web estática com um protótipo de painel interativo, explorando conceitos de desenvolvimento front-end, organização visual, experiência do usuário e uso de ferramentas low-code.
-
-## ✨ Funcionalidades
+## Funcionalidades
 
 - Página inicial com apresentação da plataforma
-- Seção de jogos em destaque
-- Categorias populares de jogos
-- Área institucional sobre a Iara Games
-- Navegação com links para loja, biblioteca, fórum e suporte
-- Protótipo de fórum com tópicos interativos
-- Campo de busca para filtrar tópicos no fórum
-- Estrutura experimental com Node-RED Dashboard
+- Catálogo com 14 jogos
+- Páginas de detalhes dos jogos
+- Categorias populares
+- Área institucional
+- Formulário de cadastro com validação no navegador
+- Protótipo de login e cadastro com Firebase Authentication
+- Protótipo de fórum com busca de tópicos no Node-RED Dashboard
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias
 
 - HTML5
 - CSS3
 - JavaScript
+- Bootstrap
+- React
+- Vite
+- Firebase Authentication
 - Node-RED
 - Node-RED Dashboard
 - GitHub Pages
 
-## 📁 Estrutura do projeto
+## Estrutura principal
 
-```bash
+```text
 iara-games/
 ├── assets/
-│   └── imagens e recursos visuais do projeto
+│   ├── css/
+│   ├── images/
+│   └── pages/
+│       ├── iara-cadastro/   # aplicação React experimental
+│       └── jogos/           # páginas individuais
 ├── js/
-│   └── arquivos JavaScript
 ├── index.html
-│   └── página principal do projeto
-├── iara-games.json
-│   └── fluxo do Node-RED utilizado no protótipo do fórum
+├── iara-games.json          # fluxo exportado do Node-RED
 └── README.md
+```
+
+## Executar o site estático
+
+Abra `index.html` com um servidor local, como a extensão Live Server do VS Code.
+
+## Executar o módulo React
+
+```bash
+cd assets/pages/iara-cadastro
+npm ci
+npm run dev
+```
+
+Verificações disponíveis:
+
+```bash
+npm run lint
+npm run build
+npm audit
+```
+
+O módulo React ainda é experimental e não substitui automaticamente o formulário estático publicado no GitHub Pages.

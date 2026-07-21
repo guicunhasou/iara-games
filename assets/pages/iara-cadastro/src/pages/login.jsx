@@ -1,130 +1,174 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import Logo from "../assets/logo.svg";
-import "./cadastro.css"; 
-import { auth } from "../services/firebase";
-import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import Logo from '../assets/logo.svg';
+import { auth } from '../services/firebase';
+import './cadastro.css';
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [popup, setPopup] = useState({ mensagem: "", tipo: "" });
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [carregando, setCarregando] = useState(false);
+  const [popup, setPopup] = useState({ mensagem: '', tipo: '' });
 
   const mostrarPopup = (mensagem, tipo) => {
     setPopup({ mensagem, tipo });
-    setTimeout(() => setPopup({ mensagem: "", tipo: "" }), 3000);
+    window.setTimeout(() => setPopup({ mensagem: '', tipo: '' }), 3000);
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async (evento) => {
+    evento.preventDefault();
+    setCarregando(true);
 
     try {
       await signInWithEmailAndPassword(auth, email, senha);
-      mostrarPopup("Login realizado com sucesso!", "sucesso");
-      setEmail("");
-      setSenha("");
+      mostrarPopup('Login realizado com sucesso!', 'sucesso');
+      setEmail('');
+      setSenha('');
     } catch (error) {
-      if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
-        mostrarPopup("Email ou senha incorretos.", "erro");
-      } else {
-        mostrarPopup("Erro ao realizar login.", "erro");
-      }
+      const credenciaisInvalidas = [
+        'auth/invalid-credential',
+        'auth/user-not-found',
+        'auth/wrong-password',
+      ].includes(error.code);
+
+      mostrarPopup(
+        credenciaisInvalidas ? 'E-mail ou senha incorretos.' : 'Não foi possível realizar o login.',
+        'erro',
+      );
+    } finally {
+      setCarregando(false);
     }
   };
 
   return (
     <div>
-    <header>
-            <nav>
-            <Link className="logo" to="/"><img src={Logo} alt="Logo" /></Link>
-            <ul className="menu">
-                <li className="inativo"><Link to="#">Loja</Link></li>
-                <li className="inativo"><Link to="#">Biblioteca</Link></li>
-                <li className="inativo"><Link to="#">Fórum</Link></li>
-                <li className="inativo"><Link to="#">Suporte</Link></li>
-            </ul>
-            <Link className="perfil" to="/login"><i className="fa-solid fa-circle-user"></i></Link>
-            </nav>
-          </header>
+      <header>
+        <nav aria-label="Menu principal">
+          <Link className="logo" to="/" aria-label="Página de login da Iara Games">
+            <img src={Logo} alt="Iara Games" />
+          </Link>
+          <ul className="menu">
+            <li className="inativo"><span aria-disabled="true">Loja</span></li>
+            <li className="inativo"><span aria-disabled="true">Biblioteca</span></li>
+            <li className="inativo"><span aria-disabled="true">Fórum</span></li>
+            <li className="inativo"><span aria-disabled="true">Suporte</span></li>
+          </ul>
+          <Link className="perfil" to="/" aria-label="Entrar na conta">
+            <i className="fa-solid fa-circle-user" aria-hidden="true"></i>
+          </Link>
+        </nav>
+      </header>
 
-      <main>
+      <main id="conteudo-principal">
         <div className="container">
-          <h2>LOGIN</h2>
+          <h1>Login</h1>
           <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <div className="input-group">
+            <div>
+              <label className="visually-hidden" htmlFor="email-login">E-mail</label>
               <input
-                type={showPassword ? "text" : "password"}
+                id="email-login"
+                name="email"
+                type="email"
                 className="form-control"
-                placeholder="Senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
+                placeholder="E-mail"
+                autoComplete="email"
+                value={email}
+                onChange={(evento) => setEmail(evento.target.value)}
                 required
               />
-              <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-              </span>
             </div>
 
-         <button type="submit" className="botao">Entrar</button>
+            <div className="input-group">
+              <label className="visually-hidden" htmlFor="senha-login">Senha</label>
+              <input
+                id="senha-login"
+                name="senha"
+                type={mostrarSenha ? 'text' : 'password'}
+                className="form-control"
+                placeholder="Senha"
+                autoComplete="current-password"
+                value={senha}
+                onChange={(evento) => setSenha(evento.target.value)}
+                required
+              />
+              <button
+                className="eye-icon"
+                type="button"
+                aria-label={mostrarSenha ? 'Ocultar senha' : 'Mostrar senha'}
+                aria-pressed={mostrarSenha}
+                onClick={() => setMostrarSenha((valorAtual) => !valorAtual)}
+              >
+                <FontAwesomeIcon icon={mostrarSenha ? faEyeSlash : faEye} aria-hidden="true" />
+              </button>
+            </div>
+
+            <button type="submit" className="botao" disabled={carregando}>
+              {carregando ? 'Entrando...' : 'Entrar'}
+            </button>
           </form>
 
           {popup.mensagem && (
-            <div className={`popup ${popup.tipo}`}>
+            <div
+              className={`popup ${popup.tipo}`}
+              role={popup.tipo === 'erro' ? 'alert' : 'status'}
+              aria-live="polite"
+            >
               {popup.mensagem}
             </div>
           )}
 
-        <p className="cadastro-link">
-        Ainda não tem conta? <Link to="/cadastro">Cadastre-se</Link>
-        </p>
-
+          <p className="cadastro-link">
+            Ainda não tem conta? <Link to="/cadastro">Cadastre-se</Link>
+          </p>
         </div>
       </main>
-            <footer>
+
+      <footer>
         <div className="decoracao"></div>
-        <div className="footer d-flex flex-column gap-3">
-          <ul className="icones d-flex list-unstyled justify-content-end gap-3">
-            <li><a href="https://www.facebook.com" target="_blank"><i className="fa-brands fa-facebook icon"></i></a></li>
-            <li><a href="https://x.com" target="_blank"><i className="fa-brands fa-x-twitter icon"></i></a></li>
-            <li><a href="https://www.youtube.com.br" target="_blank"><i className="fa-brands fa-youtube icon"></i></a></li>
+        <div className="footer">
+          <ul className="icones">
+            <li>
+              <a aria-label="Facebook (abre em nova aba)" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-facebook icon" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a aria-label="X (abre em nova aba)" href="https://x.com" target="_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-x-twitter icon" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a aria-label="YouTube (abre em nova aba)" href="https://www.youtube.com.br" target="_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-youtube icon" aria-hidden="true"></i>
+              </a>
+            </li>
           </ul>
 
           <div className="linha"></div>
 
-          <ul className="links list-unstyled d-flex justify-content-around text-center mb-3">
-            <li><a href="#">Trabalhe conosco</a></li>
-            <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Parceiros</a></li>
-            <li><a href="#">Termos de uso</a></li>
-            <li><a href="#">Política de privacidade</a></li>
+          <ul className="links">
+            <li><span aria-disabled="true">Trabalhe conosco</span></li>
+            <li><span aria-disabled="true">Sobre nós</span></li>
+            <li><span aria-disabled="true">Parceiros</span></li>
+            <li><span aria-disabled="true">Termos de uso</span></li>
+            <li><span aria-disabled="true">Política de privacidade</span></li>
           </ul>
 
           <div className="linha"></div>
 
-          <div className="informacoes row d-flex justify-content-between">
+          <div className="informacoes">
             <p className="legal">
               © 2025, Iara Games. Todos os direitos reservados. Iara Games e o logotipo da Iara Games são marcas comerciais ou registradas da Iara Games no Brasil e em outros países.
             </p>
-            <div className="contato-botao col-md-4 text-end d-flex flex-column justify-content-between align-items-center">
+            <div className="contato-botao">
               <p className="contato">
-                Entre em contato: <a href="#">iaragamesoficial@gmail.com</a>
+                Entre em contato: <a href="mailto:iaragamesoficial@gmail.com">iaragamesoficial@gmail.com</a>
               </p>
-          <a className="botao text-uppercase text-decoration-none text-center" href="#top">
-            Voltar ao topo
-          </a>
-
+              <a className="botao" href="#top">Voltar ao topo</a>
             </div>
           </div>
         </div>

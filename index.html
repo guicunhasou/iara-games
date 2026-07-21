@@ -9,26 +9,24 @@
     integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link href="assets/css/var.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
   <title>Iara Games</title>
 </head>
 
 <body>
   <header class="container-fluid px-0 d-flex align-items-center justify-content-center">
-    <nav class="container d-flex align-items-center justify-content-between flex-wrap" role="navigation"
+    <nav class="container d-flex align-items-center justify-content-between flex-wrap"
       aria-label="Menu principal">
       <a class="logo" href="index.html"><img class="py-2 px-4" src="./assets/images/logo.svg" alt="Logo Iara Games"></a>
-      <ul class="menu d-flex justify-content-between w-50 list-unstyled" role="menubar">
-        <li class="inativo" role="none"><a class="text-uppercase text-decoration-none" role="menuitem" tabindex="0"
+      <ul class="menu d-flex justify-content-between w-50 list-unstyled">
+        <li class="inativo"><a class="text-uppercase text-decoration-none"
             href="assets/pages/loja.html">Loja</a></li>
-        <li class="inativo" role="none"><a class="text-uppercase text-decoration-none" role="menuitem" tabindex="0"
-            href="#">Biblioteca</a></li>
-        <li class="inativo" role="none"><a class="text-uppercase text-decoration-none" role="menuitem" tabindex="0"
-            href="#">Fórum</a></li>
-        <li class="inativo" role="none"><a class="text-uppercase text-decoration-none" role="menuitem" tabindex="0"
-            href="#">Suporte</a></li>
+        <li class="inativo"><span class="text-uppercase" aria-disabled="true">Biblioteca</span></li>
+        <li class="inativo"><span class="text-uppercase" aria-disabled="true">Fórum</span></li>
+        <li class="inativo"><span class="text-uppercase" aria-disabled="true">Suporte</span></li>
       </ul>
-      <a class="perfil" href="assets/pages/usuario.html" aria-label="Perfil do usuário"><i
+      <a class="perfil" href="assets/pages/form.html" aria-label="Abrir cadastro de usuário"><i
           class="fa-solid fa-circle-user fs-1"></i></a>
     </nav>
   </header>
@@ -36,11 +34,11 @@
     <section class="hero d-flex">
       <div class="d-flex flex-column align-items-start position-absolute top-50 start-30 translate-middle">
         <h1 class="display-6 fw-bold">Descubra jogos criados no coração do Brasil</h1>
-        <a class="botao text-uppercase text-decoration-none text-center" href="assets/pages/loja.html" role="button"
-          tabindex="0">Explorar catálogo</a>
+        <a class="botao text-uppercase text-decoration-none text-center" href="assets/pages/loja.html"
+         >Explorar catálogo</a>
       </div>
     </section>
-    <article class="destaques p-5">
+    <article class="destaques">
       <div class="conteudo d-flex flex-column g-3">
         <h2 class="titulo fs-1">Jogos em destaque</h2>
         <ul class="cards-destaques d-flex flex-wrap justify-content-between gap-3" aria-label="Jogos em destaque">
@@ -98,8 +96,8 @@
               envolventes. Com uma equipe apaixonada por contar histórias e explorar novas mecânicas de jogo, buscamos
               trazer à vida mundos vibrantes e personagens memoráveis. Nossa missão é celebrar a cultura brasileira
               através dos jogos, oferecendo aos jogadores aventuras emocionantes e inovadoras.</p>
-            <a class="botao text-uppercase text-decoration-none text-center" href="assets/pages/usuario.html"
-              role="button" tabindex="0">Cadastre-se</a>
+            <a class="botao text-uppercase text-decoration-none text-center" href="assets/pages/form.html"
+             >Cadastre-se</a>
           </div>
         </div>
       </div>
@@ -108,27 +106,24 @@
   <footer>
     <div class="decoracao"></div>
     <div class="footer d-flex flex-column gap-3">
-      <ul class="icones d-flex list-unstyled justify-content-end gap-3" role="menubar" aria-label="Redes sociais">
-        <li role="none"><a role="menuitem" tabindex="0" href="https://www.facebook.com" target="_blank"
-            rel="noopener noreferrer"><i class="fa-brands fa-facebook icon"></i></a></li>
-        <li role="none"><a role="menuitem" tabindex="0" href="https://x.com" target="_blank"
-            rel="noopener noreferrer"><i class="fa-brands fa-x-twitter icon"></i></a></li>
-        <li role="none"><a role="menuitem" tabindex="0" href="https://www.youtube.com.br" target="_blank"
-            rel="noopener noreferrer"><i class="fa-brands fa-youtube icon"></i></a></li>
+      <ul class="icones d-flex list-unstyled justify-content-end gap-3" aria-label="Redes sociais">
+        <li><a aria-label="Facebook (abre em nova aba)" href="https://www.facebook.com" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-facebook icon" aria-hidden="true"></i></a></li>
+        <li><a aria-label="X (abre em nova aba)" href="https://x.com" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-x-twitter icon" aria-hidden="true"></i></a></li>
+        <li><a aria-label="YouTube (abre em nova aba)" href="https://www.youtube.com.br" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-youtube icon" aria-hidden="true"></i></a></li>
       </ul>
       <div class="linha"></div>
-      <ul class="links list-unstyled d-flex justify-content-around text-center mb-3" role="menubar"
+      <ul class="links list-unstyled d-flex justify-content-around text-center mb-3"
         aria-label="Links institucionais">
-        <li role="none"><a class="text-decoration-none text-uppercase fs-6" role="menuitem" tabindex="0"
-            href="#">Trabalhe conosco</a></li>
-        <li role="none"><a class="text-decoration-none text-uppercase fs-6" role="menuitem" tabindex="0" href="#">Sobre
-            nós</a></li>
-        <li role="none"><a class="text-decoration-none text-uppercase fs-6" role="menuitem" tabindex="0"
-            href="#">Parceiros</a></li>
-        <li role="none"><a class="text-decoration-none text-uppercase fs-6" role="menuitem" tabindex="0" href="#">Termos
-            de uso</a></li>
-        <li role="none"><a class="text-decoration-none text-uppercase fs-6" role="menuitem" tabindex="0"
-            href="#">Política de privacidade</a></li>
+        <li><span class="text-uppercase fs-6" aria-disabled="true">Trabalhe conosco</span></li>
+        <li><span class="text-uppercase fs-6" aria-disabled="true">Sobre
+            nós</span></li>
+        <li><span class="text-uppercase fs-6" aria-disabled="true">Parceiros</span></li>
+        <li><span class="text-uppercase fs-6" aria-disabled="true">Termos
+            de uso</span></li>
+        <li><span class="text-uppercase fs-6" aria-disabled="true">Política de privacidade</span></li>
       </ul>
       <div class="linha"></div>
       <div class="informacoes row d-flex justify-content-between">
@@ -140,10 +135,10 @@
           ou recursos e não assume qualquer responsabilidade por eles, nem por qualquer perda ou dano resultante do seu
           uso. </p>
         <div class="contato-botao col-md-4 text-end d-flex flex-column justify-content-between align-items-center">
-          <p class="contato">Entre em contato: <a class="text-decoration-none" href="#">iaragamesoficial@gmail.com</a>
+          <p class="contato">Entre em contato: <a class="text-decoration-none" href="mailto:iaragamesoficial@gmail.com">iaragamesoficial@gmail.com</a>
           </p>
           <a class="botao text-uppercase text-decoration-none text-center" href="#top"
-            aria-label="Voltar ao topo da página" role="button" tabindex="0">Voltar ao topo</a>
+            aria-label="Voltar ao topo da página">Voltar ao topo</a>
         </div>
       </div>
     </div>

@@ -118,3 +118,62 @@ aside .legenda {
 aside .capa:hover .legenda {
   display: block;
 }
+.imagens li:focus-within .legenda,
+aside .capa:focus-within .legenda {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  main {
+    margin: 0 auto;
+    width: min(92%, 48rem);
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  article {
+    padding-bottom: 1rem;
+  }
+
+  .imagens {
+    width: 100%;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .imagens li,
+  .imagens li:nth-child(2),
+  .imagens li:hover {
+    width: min(100%, 28rem);
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .imagens li .legenda,
+  aside .legenda {
+    display: block;
+    font-size: 0.8rem;
+  }
+
+  .descricao {
+    width: 100%;
+  }
+
+  .descricao h2 {
+    font-size: 1.15rem;
+  }
+
+  .descricao p {
+    font-size: 1rem;
+  }
+
+  aside {
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+
+  aside .capa {
+    width: 12rem;
+    height: 18rem;
+  }
+}

@@ -1,35 +1,185 @@
-@media (max-width: 1440px) {
-
-  nav{
-    width: 60%;
-  }
-
-}
-
 @media (max-width: 1024px) {
-
-  nav{
-    width: 70%;
+  header {
+    min-height: 8.5rem;
+    padding: 1.5rem 0 1rem;
   }
 
-}
-
-@media (max-width: 768px) {
-
-  .logo img{
-    height: 7.5vh;
-  }
-
-  nav{
-    width: 80%;
-  }
-
-  .perfil{
-    font-size: 2rem;
+  header nav {
+    width: min(92%, 60rem);
+    gap: 1rem;
   }
 
   .menu {
-    font-size: 0.7rem;
+    width: auto !important;
+    flex: 1;
+    gap: 1rem;
   }
 
+  .conteudo,
+  .cards {
+    width: 100%;
+  }
+
+  .cards-categorias {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    height: 38rem;
+    background-size: cover;
+    background-position: 58% bottom;
+  }
+
+  .hero div {
+    left: 28%;
+  }
+
+  .informacoes {
+    gap: 1.5rem;
+  }
+
+  .legal {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  header nav {
+    justify-content: center !important;
+  }
+
+  .logo img {
+    width: 8rem;
+    height: auto;
+    padding: 0.5rem !important;
+  }
+
+  .menu {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+  }
+
+  .perfil i {
+    font-size: 2.4rem !important;
+  }
+
+  .hero {
+    min-height: 32rem;
+    height: auto;
+    padding: 5rem 1.5rem;
+    background-position: 65% bottom;
+  }
+
+  .hero div {
+    position: static !important;
+    transform: none !important;
+    max-width: 22rem;
+  }
+
+  .hero h1,
+  .hero a {
+    width: 100%;
+  }
+
+  .conteudo,
+  .cards {
+    width: 100%;
+  }
+
+  .titulo {
+    padding-top: 0;
+  }
+
+  .destaques,
+  .categorias,
+  .sobre,
+  .catalogo {
+    padding: 3rem 1.25rem !important;
+  }
+
+  .cards-destaques {
+    justify-content: center !important;
+  }
+
+  .bio {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .perfil-iara {
+    width: min(15rem, 80vw);
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .footer {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .icones,
+  .links {
+    justify-content: center !important;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+  }
+
+  .contato-botao {
+    width: 100%;
+    margin-left: 0;
+    text-align: center !important;
+    gap: 1rem;
+  }
+
+  .cadastro-conteudo {
+    width: min(100%, 32rem);
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .menu {
+    gap: 0.75rem 1rem;
+  }
+
+  .hero {
+    min-height: 28rem;
+    background-position: 70% bottom;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .botao {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .cards-destaques li,
+  .cards li {
+    width: calc(50% - 0.5rem);
+    max-width: 10rem;
+    height: auto;
+    flex-basis: calc(50% - 0.5rem);
+  }
+
+  .cards-categorias {
+    grid-template-columns: 1fr;
+  }
+
+  .decoracao {
+    height: 7rem;
+    background-size: auto 100%;
+  }
 }

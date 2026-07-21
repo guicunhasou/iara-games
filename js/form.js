@@ -1,23 +1,28 @@
-const btnConta = document.querySelector('#criarConta')
-btnConta.addEventListener('click', function (e) {
-    e.preventDefault();
+const formulario = document.querySelector('#dados');
+const mensagemFormulario = document.querySelector('#mensagem-formulario');
 
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const senha = document.getElementById('senha').value.trim();
+function exibirMensagem(mensagem, tipo) {
+  mensagemFormulario.textContent = mensagem;
+  mensagemFormulario.className = `mensagem-formulario ${tipo}`;
+}
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+formulario.addEventListener('submit', (evento) => {
+  evento.preventDefault();
 
-    if (!nome || !email || !senha) {
-        alert('Por favor, preencha todos os campos corretamente!');
-        return;
-    }
+  if (!formulario.checkValidity()) {
+    formulario.reportValidity();
+    return;
+  }
 
-    if (!emailRegex.test(email)) {
-        alert('Por favor, insira um e-mail válido!');
-        return;
-    }
+  const nome = formulario.elements.nome.value.trim();
+  const email = formulario.elements.email.value.trim();
+  const senha = formulario.elements.senha.value;
 
-    alert('Você realizou seu cadastro!');
+  if (!nome || !email || !senha) {
+    exibirMensagem('Preencha todos os campos para continuar.', 'erro');
+    return;
+  }
+
+  exibirMensagem('Cadastro validado com sucesso!', 'sucesso');
+  formulario.reset();
 });
-
